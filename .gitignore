@@ -37,8 +37,6 @@ app/.venv/
 *.csv
 *.npy
 *.npz
-*.h5
-*.keras
 *.tflite
 checkpoint
 .ipynb_checkpoints/

@@ -28,11 +28,16 @@ You can set up the virtual environment either in the `app` folder (recommended f
    python -m venv .venv
    ```
 
-3. Activate the virtual environment:
-   - On Windows: `.venv\Scripts\activate`
+3. Delete broken folder: (optional) then rerun step 2
+   ```
+   Remove-Item -Recurse -Force .venv
+   ```  
+
+4. Activate the virtual environment:
+   - On Windows: `.venv\Scripts\activate` old, `.\.venv\Scripts\Activate.ps1` new
    - On macOS/Linux: `source .venv/bin/activate`
 
-4. Install dependencies:
+5. Install dependencies:
    ```
    pip install -r requirements.txt
    ```

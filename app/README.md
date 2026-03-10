@@ -15,37 +15,11 @@ This is a Streamlit web application for classifying Fashion MNIST images using a
 - Virtual environment tool (built-in with Python).
 
 ### Setup Virtual Environment
-You can set up the virtual environment either in the `app` folder (recommended for isolation) or in the root project folder (for sharing with the notebook). You can also set up both if needed, but this is generally not recommended.
+You can set up the virtual environment either in the root project folder for universal access and unified dependencies (sharing with the notebook) or app folder for isolation.
 
-#### Option 1: In the `app` folder (Recommended)
-1. Navigate to the `app` folder:
-   ```
-   cd Image-Classification-Fashion-MNIST\app
-   ```
-
-2. Create a virtual environment in the `.venv` folder:
-   ```
-   python -m venv .venv
-   ```
-
-3. Delete broken folder: (optional) then rerun step 2
-   ```
-   Remove-Item -Recurse -Force .venv
-   ```  
-
-4. Activate the virtual environment:
-   - On Windows: `.venv\Scripts\activate` old, `.\.venv\Scripts\Activate.ps1` new
-   - On macOS/Linux: `source .venv/bin/activate`
-
-5. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-#### Option 2: In the root project folder (Shared with notebook)
+#### Option 1: In the `root` project folder (Shared with notebook)
 This option sets up the virtual environment in the root `.venv` folder.
-This makes the environment accessible from both the root directory (e.g., for running the notebook) and the `app` subfolder, as long as you activate it from the appropriate location.
-
+This makes the environment accessible from both the root directory (e.g., for running the notebook) and the `app` subfolder.
 1. Navigate to the root project folder:
    ```
    cd Image-Classification-Fashion-MNIST
@@ -54,33 +28,90 @@ This makes the environment accessible from both the root directory (e.g., for ru
 2. Create a virtual environment in the `.venv` folder:
    ```
    python -m venv .venv
+   
+   - Note: If the process is interrupted or fails, delete the broken folder before retrying:
+   Remove-Item -Recurse -Force .venv
    ```
 
 3. Activate the virtual environment:
-   - On Windows: `.venv\Scripts\activate`
-   - On macOS/Linux: `source .venv/bin/activate`
+   - On Windows: Terminal Type: Command Prompt (CMD): `.venv\Scripts\activate`
+   - On Windows: Terminal Type: PowerShell (PS): `.\.venv\Scripts\Activate.ps1`
+   - On Git Bash / macOS / Linux: `source .venv/bin/activate`
 
 4. Install dependencies:
    ```
    pip install -r app/requirements.txt
    ```
 
+#### Option 2: In the `app` folder (isolation)
+This option sets up the virtual environment in the root `app` folder.
+Use this setup to isolate the application from the training environment.
+1. Navigate to the `app` folder:
+   ```
+   cd app
+   ```
+
+2. Create a virtual environment in the `.venv` folder:
+   ```
+   python -m venv .venv
+   
+   - Note: If the process is interrupted or fails, delete the broken folder before retrying:
+   Remove-Item -Recurse -Force .venv
+   ``` 
+
+3. Activate the virtual environment:
+   - On Windows: Terminal Type: Command Prompt (CMD): `.venv\Scripts\activate`
+   - On Windows: Terminal Type: PowerShell (PS): `.\.venv\Scripts\Activate.ps1`
+   - On Git Bash / macOS / Linux: `source .venv/bin/activate`
+
+4. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
 ### Run Locally
-1. Navigate to the `app` folder if not already there:
-   ```
-   cd Image-Classification-Fashion-MNIST\app
-   ```
+Ensure you are at the appropriate location. (root project folder / app folder)
+
+#### Option 1: Virtual Environment in `root` project folder
+1. Navigate to the root folder if not already there:
+```
+cd Image-Classification-Fashion-MNIST
+```
 
 2. Ensure the virtual environment is activated.
+   - On Windows: Terminal Type: Command Prompt (CMD): `.venv\Scripts\activate`
+   - On Windows: Terminal Type: PowerShell (PS): `.\.venv\Scripts\Activate.ps1`
+   - On Git Bash / macOS / Linux: `source .venv/bin/activate`
+   
+3. Navigate to the `app` folder:
+   ```
+   cd app
+   ```
 
-   - On Windows: `.venv\Scripts\activate`
-   - On macOS/Linux: `source .venv/bin/activate`
+4. Run the app:
+   ```
+   streamlit run main.py
+   ```
+   
+5. Wait for browser or open your browser to `http://localhost:8501`.
+
+#### Option 2: Virtual Environment in the `app` folder
+1. Navigate to the app folder if not already there:
+```
+cd app
+```
+
+2. Ensure the virtual environment is activated.
+   - On Windows: Terminal Type: Command Prompt (CMD): `.venv\Scripts\activate`
+   - On Windows: Terminal Type: PowerShell (PS): `.\.venv\Scripts\Activate.ps1`
+   - On Git Bash / macOS / Linux: `source .venv/bin/activate`
 
 3. Run the app:
    ```
-   streamlit run app.py
+   streamlit run main.py
    ```
-4. Open your browser to `http://localhost:8501`.
+
+4. Wait for browser or Open your browser to `http://localhost:8501`.
 
 ## Docker Setup and Run
 
